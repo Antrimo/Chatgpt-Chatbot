@@ -1,5 +1,8 @@
+import 'package:chatbot/constant/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:chatbot/widgets/widgets_chat.dart';
+
 
 void main() {
   runApp(Chatgpt());
@@ -40,11 +43,11 @@ class Chatgpt extends StatelessWidget {
             children: [
               Flexible(
                 child: ListView.builder(
-                  itemCount: 0,
+                  itemCount: 6,
                   itemBuilder: (context, index) {
-                    return Text(
-                      "Kartikey",
-                      style: TextStyle(color: Colors.white),
+                    return ChatWidget(
+                      msg: chatMessages[index]["msg"].toString(),
+                      chatIndex: int.parse(chatMessages[index]["chatIndex"].toString()),
                     );
                   },
                 ),
@@ -69,7 +72,8 @@ class Chatgpt extends StatelessWidget {
                             },
                             decoration: InputDecoration(
                               hintText: " How can I help you?",
-                              hintStyle: TextStyle(color: Colors.white,fontSize: 17.0),
+                              hintStyle: TextStyle(
+                                  color: Colors.white, fontSize: 17.0),
                             ),
                           ),
                         ),
