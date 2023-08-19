@@ -1,3 +1,19 @@
+import 'package:flutter/material.dart';
+
+List<String> models = ["Model1", "Model2", "Model3","Model4","Model5","Model6"]; // Example list of models
+
+List<DropdownMenuItem<String>>? get getModelsItem {
+  List<DropdownMenuItem<String>>? modelsItems =
+      List<DropdownMenuItem<String>>.generate(
+          models.length,
+          (index) => DropdownMenuItem(
+              value: models[index],
+              child: Text(
+                models[index],
+                style: TextStyle(fontSize: 12.0,color: Colors.white),
+              )));
+  return modelsItems;
+}
 
 final chatMessages = [
       {
